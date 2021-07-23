@@ -1,3 +1,10 @@
+# [8.2.0](https://github.com/funda-frontend/ui/compare/v8.1.0...v8.2.0) (2021-07-23)
+
+
+### Features
+
+* **ui-radio:** add prop to center radio button vertically ([91effb2](https://github.com/funda-frontend/ui/commit/91effb252ff9a3c37564639ab9c9da0ef6d3dbab))
+
 # [8.1.0](https://github.com/funda-frontend/ui/compare/v8.0.0...v8.1.0) (2021-07-09)
 
 
