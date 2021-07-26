@@ -1,3 +1,10 @@
+## [8.2.1](https://github.com/funda-frontend/ui/compare/v8.2.0...v8.2.1) (2021-07-26)
+
+
+### Bug Fixes
+
+* **husky:** move husky to prepare ([067839f](https://github.com/funda-frontend/ui/commit/067839f738d5336538709fe87392759869553777))
+
 # [8.2.0](https://github.com/funda-frontend/ui/compare/v8.1.0...v8.2.0) (2021-07-23)
 
 
