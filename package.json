@@ -23,7 +23,7 @@
         "generateExports": "node ./src/generateExports.js",
         "test": "jest",
         "test-watch": "jest --watch",
-        "postinstall": "husky install"
+        "prepare": "husky install"
     },
     "devDependencies": {
         "@babel/core": "^7.12.9",
