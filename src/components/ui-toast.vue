@@ -4,13 +4,29 @@
         :class="[borderColorClass]"
     >
         <div class="mr-3" :aria-label="type">
-            <icon-info v-if="type === 'information'" class="text-blue-1" />
+            <icon-info
+                v-if="type === 'information'"
+                class="text-dark-1"
+                aria-label="information"
+            />
 
-            <icon-error v-if="type === 'error'" class="text-red-1" />
+            <icon-error
+                v-if="type === 'error'"
+                class="text-red-1"
+                aria-label="information"
+            />
 
-            <icon-success v-if="type === 'success'" class="text-green-1" />
+            <icon-success
+                v-if="type === 'success'"
+                class="text-green-1"
+                aria-label="success"
+            />
 
-            <icon-warning v-if="type === 'warning'" class="text-yellow-1" />
+            <icon-warning
+                v-if="type === 'warning'"
+                class="text-yellow-1"
+                aria-label="warning"
+            />
         </div>
 
         <div class="m-0 flex-auto overflow-hidden">
@@ -19,6 +35,7 @@
 
         <ui-button
             tone="tertiary"
+            aria-label="close"
             class="top-0 right-0 absolute px-2 opacity-0 group-hover:opacity-100 focus:outline-none active:outline-none hover:outline-none"
             @click="close"
         >

@@ -26,6 +26,7 @@
             <icon-arrow-down
                 class="text-blue-2"
                 :class="{ 'text-dark-3': disabled }"
+                aria-label="open"
             />
         </div>
     </div>

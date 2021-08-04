@@ -14,6 +14,7 @@
                 <component
                     :is="isExpanded ? 'icon-arrow-up' : 'icon-arrow-down'"
                     v-if="!disabled"
+                    :aria-label="isExpanded ? 'open' : 'close'"
                     class="text-blue-1"
                 />
             </div>

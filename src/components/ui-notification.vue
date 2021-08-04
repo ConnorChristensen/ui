@@ -1,13 +1,29 @@
 <template>
     <div :class="cssClasses" class="items-center flex p-3">
         <span class="mr-3" :aria-label="type">
-            <icon-info v-if="type === 'information'" class="text-dark-1" />
+            <icon-info
+                v-if="type === 'information'"
+                class="text-dark-1"
+                aria-label="information"
+            />
 
-            <icon-error v-if="type === 'error'" class="text-red-1" />
+            <icon-error
+                v-if="type === 'error'"
+                class="text-red-1"
+                aria-label="information"
+            />
 
-            <icon-success v-if="type === 'success'" class="text-green-1" />
+            <icon-success
+                v-if="type === 'success'"
+                class="text-green-1"
+                aria-label="success"
+            />
 
-            <icon-warning v-if="type === 'warning'" class="text-yellow-1" />
+            <icon-warning
+                v-if="type === 'warning'"
+                class="text-yellow-1"
+                aria-label="warning"
+            />
         </span>
 
         <slot name="notificationBody" />
