@@ -96,6 +96,13 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const ModalDefault = Template.bind({});
+ModalDefault.parameters = {
+    a11y: {
+        config: {
+            rules: [{ id: 'color-contrast', enabled: false }],
+        },
+    },
+};
 
 const TemplateModalWithContent = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
@@ -144,6 +151,13 @@ const TemplateModalWithContent = (args, { argTypes }) => ({
 });
 
 export const ModalExtended = TemplateModalWithContent.bind({});
+ModalExtended.parameters = {
+    a11y: {
+        config: {
+            rules: [{ id: 'color-contrast', enabled: false }],
+        },
+    },
+};
 
 const TemplateModalWithCustomCloseButton = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
@@ -190,3 +204,10 @@ const TemplateModalWithCustomCloseButton = (args, { argTypes }) => ({
 export const ModalWithCustomCloseButton = TemplateModalWithCustomCloseButton.bind(
     {}
 );
+ModalWithCustomCloseButton.parameters = {
+    a11y: {
+        config: {
+            rules: [{ id: 'color-contrast', enabled: false }],
+        },
+    },
+};

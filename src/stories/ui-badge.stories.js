@@ -5,7 +5,7 @@ export default {
     component: UiBadge,
 };
 
-const Template = args => ({
+const Template = () => ({
     components: { UiBadge },
     template: `
         <ui-badge>
@@ -14,3 +14,10 @@ const Template = args => ({
 });
 
 export const Badge = Template.bind({});
+Badge.parameters = {
+    a11y: {
+        config: {
+            rules: [{ id: 'color-contrast', enabled: false }],
+        },
+    },
+};

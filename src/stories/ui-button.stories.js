@@ -47,3 +47,10 @@ Button.args = {
     disabled: false,
     onClick() {},
 };
+Button.parameters = {
+    a11y: {
+        config: {
+            rules: [{ id: 'color-contrast', enabled: false }],
+        },
+    },
+};

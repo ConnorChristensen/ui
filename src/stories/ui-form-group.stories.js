@@ -10,7 +10,7 @@ export default {
     component: UiFormGroup,
 };
 
-const Template = args => ({
+const Template = () => ({
     components: { UiFormGroup, UiLabel, UiInput, UiSelect, UiTextarea },
     template: ` <div>
                     <ui-form-group>
@@ -29,7 +29,7 @@ const Template = args => ({
 });
 export const FormGroup = Template.bind({});
 
-const TemplateInvalid = args => ({
+const TemplateInvalid = () => ({
     components: {
         UiFormGroup,
         UiLabel,
@@ -58,3 +58,10 @@ const TemplateInvalid = args => ({
 });
 
 export const FormGroupInvalid = TemplateInvalid.bind({});
+FormGroupInvalid.parameters = {
+    a11y: {
+        config: {
+            rules: [{ id: 'color-contrast', enabled: false }],
+        },
+    },
+};
