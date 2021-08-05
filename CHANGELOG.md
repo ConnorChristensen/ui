@@ -1,3 +1,10 @@
+## [8.2.2](https://github.com/funda-frontend/ui/compare/v8.2.1...v8.2.2) (2021-08-05)
+
+
+### Bug Fixes
+
+* **a11y:** fix some acessibility errors ([1b96608](https://github.com/funda-frontend/ui/commit/1b966082c9f1c4443cddce39d881b4f5618dd739))
+
 ## [8.2.1](https://github.com/funda-frontend/ui/compare/v8.2.0...v8.2.1) (2021-07-26)
 
 
