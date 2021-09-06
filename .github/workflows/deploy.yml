@@ -10,28 +10,33 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v2.3.1
         with:
           persist-credentials: false
 
-      - name: Cache node modules
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Cache dependencies
         uses: actions/cache@v2
-        env:
-          cache-name: cache-node-modules
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
 
-      - run: npm ci 
-      - run: npm test
-      - run: npm run build
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
 
-      - name: Deploy latest 🚀
+      - name: Run tests
+        run: npm test
+
+      - name: Build 
+        run: npm run build
+
+      - name: Deploy latest
         uses: peaceiris/actions-gh-pages@v3
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         with:
@@ -39,13 +44,13 @@ jobs:
           publish_dir: ./public
           destination_dir: latest
 
-      - name: Extract path 🔧
+      - name: Extract path
         shell: bash
         if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
-      - name: Deploy PR 🚀
+      - name: Deploy PR
         uses: peaceiris/actions-gh-pages@v3
         if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
         with:
@@ -53,7 +58,7 @@ jobs:
           publish_dir: ./public
           destination_dir: ${{ steps.extract_branch.outputs.branch }}
 
-      - name: Comment PR 📝
+      - name: Comment PR
         uses: harupy/comment-on-pr@master
         if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
         env:

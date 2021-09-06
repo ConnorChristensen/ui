@@ -5,8 +5,9 @@ permissions:
   pull-requests: write
 
 jobs:
-  autoapprove:
-    name: Auto Approve a PR by dependabot
+  auto-approve:
+    name: Auto approve a PR by dependabot
+    needs: build-and-deploy
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
