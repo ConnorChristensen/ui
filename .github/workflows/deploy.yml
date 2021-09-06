@@ -41,7 +41,7 @@ jobs:
 
       - name: Extract path 🔧
         shell: bash
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
 
@@ -55,7 +55,7 @@ jobs:
 
       - name: Comment PR 📝
         uses: harupy/comment-on-pr@master
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
