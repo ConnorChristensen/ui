@@ -18,24 +18,14 @@ export default {
                 ],
             },
         },
-        isValid: {
-            control: {
-                options: [true, false],
-            },
-        },
-        value: {
+        prefixText: {
             control: {
                 type: 'text',
             },
         },
-        placeholder: {
+        suffixText: {
             control: {
                 type: 'text',
-            },
-        },
-        disabled: {
-            control: {
-                options: [true, false],
             },
         },
     },
@@ -60,19 +50,22 @@ Input.args = {
 const TemplatePrefixSuffix = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: { UiInput },
-    template: `<ui-input @change="onChange" :type="type" :isValid="isValid" :placeholder="placeholder" :value="value" :disabled="disabled">
-                <template v-slot:prefix><div class="text-light-1 py-2 px-4 absolute top-0 left-0">PF</div></template>
-                <template v-slot:suffix><div class="text-light-1 py-2 px-4 absolute top-0 right-0">SF</div></template>
-               </ui-input>`,
+    template: `
+        <ui-input v-bind="$props">
+            <template v-slot:prefix>
+                <div class="text-light-1 py-2 pl-4">{{ prefixText }}</div>
+            </template>
+            <template v-slot:suffix>
+                <div class="text-light-1 py-2 pr-4">{{ suffixText }}</div>
+            </template>
+        </ui-input>`,
 });
+
 export const InputExtras = TemplatePrefixSuffix.bind({});
 InputExtras.args = {
-    type: 'text',
-    isValid: true,
-    value: 'lorem ipsum sitamet doloris.',
-    placeholder: 'placeholder',
-    disabled: false,
-    onChange() {},
+    ...Input.args,
+    prefixText: 'PF',
+    suffixText: 'SF',
 };
 InputExtras.parameters = {
     a11y: {

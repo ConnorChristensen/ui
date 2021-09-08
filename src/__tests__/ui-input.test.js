@@ -7,11 +7,16 @@ const SLOT_SUFFIX = 'icon';
 describe('UiInput', () => {
     let wrapper, input;
     beforeEach(() => {
+        const div = document.createElement('div');
+        div.id = 'root';
+        document.body.appendChild(div);
+
         wrapper = mount(UiInput, {
             slots: {
                 prefix: SLOT_PREFIX,
                 suffix: SLOT_SUFFIX,
             },
+            attachTo: '#root',
         });
         input = wrapper.find('input');
     });
@@ -19,24 +24,24 @@ describe('UiInput', () => {
     it('Should set border classes when isValid is set', async () => {
         await wrapper.setProps({ isValid: false });
         expect(wrapper.vm.isValid).toBe(false);
-        expect(input.classes()).toContain('border-red-1');
+        expect(wrapper.classes()).toContain('border-red-1');
 
         await wrapper.setProps({ isValid: true });
         expect(wrapper.vm.isValid).toBe(true);
-        expect(input.classes()).toContain('border-light-1');
+        expect(wrapper.classes()).toContain('border-light-1');
     });
 
-    it('Should set type when type prop is set', async () => {
-        await wrapper.setProps({ type: 'number' });
-        expect(wrapper.vm.type).toBe('number');
+    it('Should set border classes when is focused', async () => {
+        await input.trigger('focus');
+        expect(wrapper.classes()).toContain('border-dark-3');
+
+        await input.trigger('blur');
+        expect(wrapper.classes()).toContain('border-light-1');
     });
 
     it('Should render slot when slot is set', () => {
         expect(wrapper.text()).toContain(SLOT_PREFIX);
-        expect(input.classes()).toContain('pl-12');
-
         expect(wrapper.text()).toContain(SLOT_SUFFIX);
-        expect(input.classes()).toContain('pr-12');
     });
 
     it('Should emit input event with value', () => {

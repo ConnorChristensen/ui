@@ -1,17 +1,18 @@
 <template>
-    <div class="relative">
+    <div
+        class="relative rounded-sm border shadow-inner flex items-center overflow-hidden"
+        :class="[backgroundColor, outlineColor]"
+        @click="focusField"
+    >
         <template v-if="hasPrefix">
             <slot name="prefix"></slot>
         </template>
         <input
-            class="w-full rounded-sm border bg-white shadow-inner py-2 px-4 outline-none text-base font-normal h-11 disabled:bg-light-3"
-            :class="{
-                'border-light-1 focus:border-dark-3': isValid,
-                'border-red-1 focus:border-red-1': !isValid,
-                'pl-12': hasPrefix,
-                'pr-12': hasSuffix,
-            }"
+            ref="field"
+            class="py-2 px-4 outline-none text-base font-normal h-11 flex-grow bg-transparent"
             v-bind="$attrs"
+            @focus="isFocused = true"
+            @blur="isFocused = false"
             v-on="inputListeners"
         />
         <template v-if="hasSuffix">
@@ -24,15 +25,15 @@
 export default {
     inheritAttrs: false,
     props: {
-        type: {
-            type: String,
-            default: 'text',
-            validator: (value) => ['text', 'number'].includes(value),
-        },
         isValid: {
             type: Boolean,
             default: true,
         },
+    },
+    data() {
+        return {
+            isFocused: false,
+        };
     },
     computed: {
         inputListeners() {
@@ -48,6 +49,30 @@ export default {
         },
         hasSuffix() {
             return Boolean(this.$slots['suffix']);
+        },
+        backgroundColor() {
+            if (this.$attrs.disabled) {
+                return 'bg-light-3';
+            }
+            return 'bg-white';
+        },
+        outlineColor() {
+            if (!this.isValid) {
+                return 'border-red-1';
+            }
+            return this.isFocused ? 'border-dark-3' : 'border-light-1';
+        },
+    },
+    methods: {
+        focusField() {
+            // If the user clicks anywhere within the containing div, we want to
+            // redirect focus to the input field inside the div, which makes it
+            // feel like the prefix and suffix are located within the input
+            // fields. There is, however, no need to manually handle focus
+            // if the only thing in the div is the input
+            if (this.hasPrefix || this.hasSuffix) {
+                this.$refs.field.focus();
+            }
         },
     },
 };
