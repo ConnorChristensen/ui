@@ -38,6 +38,7 @@
         "@semantic-release/release-notes-generator": "^9.0.1",
         "@storybook/addon-a11y": "^6.3.6",
         "@storybook/addon-essentials": "^6.3.2",
+        "@storybook/addon-postcss": "^2.0.0",
         "@storybook/vue": "^6.3.2",
         "@testing-library/jest-dom": "^5.11.5",
         "@testing-library/vue": "^5.8.0",
