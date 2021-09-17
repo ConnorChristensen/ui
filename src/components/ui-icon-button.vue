@@ -19,14 +19,15 @@ export default {
             default: false,
         },
     },
+    data() {
+        return {
+            enabledClasses: 'text-blue-2 hover:text-blue-1 cursor-pointer',
+            disabledClasses: 'text-light-1 cursor-default',
+        };
+    },
     computed: {
         cssClasses() {
-            const enabledClasses =
-                'text-blue-2 hover:text-blue-1 cursor-pointer';
-            const disabledClasses = 'text-light-1 cursor-default';
-            return `leading-6 inline-flex whitespace-no-wrap border-solid rounded-sm align-middle text-center items-center justify-center focus:outline-none ${
-                this.disabled ? disabledClasses : enabledClasses
-            } `;
+            return [this.disabled ? this.disabledClasses : this.enabledClasses];
         },
         showLink() {
             // if the button is disabled, we want to switch to showing a button
