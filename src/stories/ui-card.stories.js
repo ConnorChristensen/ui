@@ -119,7 +119,7 @@ export const CardImage = TemplateImage.bind({});
 const TemplateImageSmall = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: { UiCardImage },
-    template: ` <ui-card-image :variant="variant" size="small" src="https://placekitten.com/300/200" alt="A kitty cat">
+    template: ` <ui-card-image :variant="variant" small-image src="https://placekitten.com/300/200" alt="A kitty cat">
                     Card content
                 </ui-card-image>`,
 });

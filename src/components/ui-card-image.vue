@@ -1,8 +1,14 @@
 <template>
     <ui-card :variant="variant">
         <template #image>
+            <img
+                v-if="smallImage"
+                class="block px-0 md:px-4 pt-0 md:pt-4 w-full md:w-auto rounded-t-sm md:rounded-none"
+                v-bind="$attrs"
+                loading="lazy"
+            />
             <div
-                v-if="size === 'big'"
+                v-else
                 class="overflow-hidden relative h-0 pt-40 md:rounded-t-sm"
             >
                 <img
@@ -11,12 +17,6 @@
                     loading="lazy"
                 />
             </div>
-            <img
-                v-else
-                class="block px-0 md:px-4 pt-0 md:pt-4 w-full md:w-auto rounded-t-sm md:rounded-none"
-                v-bind="$attrs"
-                loading="lazy"
-            />
         </template>
         <slot />
     </ui-card>
@@ -35,9 +35,9 @@ export default {
             type: String,
             default: 'default',
         },
-        size: {
-            type: String,
-            default: 'big',
+        smallImage: {
+            type: Boolean,
+            default: false,
         },
     },
 };
