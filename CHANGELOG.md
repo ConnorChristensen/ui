@@ -1,3 +1,12 @@
+# [8.3.0](https://github.com/funda-frontend/ui/compare/v8.2.2...v8.3.0) (2021-09-23)
+
+
+### Features
+
+* **card-image:** add knob and simplify story ([8468e97](https://github.com/funda-frontend/ui/commit/8468e97fb050b96e2bc6d5842f6a7b912a1240bc))
+* **card-image:** add the option for a small image ([d516382](https://github.com/funda-frontend/ui/commit/d516382f276150eeb5cb24bb6578c7cca45b3485))
+* **card-image:** make the small image prop a boolean ([9759cbf](https://github.com/funda-frontend/ui/commit/9759cbfacb529b9411960f1a56fc77f1b4da91ea))
+
 ## [8.2.2](https://github.com/funda-frontend/ui/compare/v8.2.1...v8.2.2) (2021-08-05)
 
 
