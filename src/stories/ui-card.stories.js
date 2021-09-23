@@ -110,17 +110,15 @@ export const CardTitleNotification = TemplateTitleNotification.bind({});
 const TemplateImage = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: { UiCardImage },
-    template: ` <ui-card-image :variant="variant" src="https://placekitten.com/200/300" alt="A kitty cat">
+    template: ` <ui-card-image v-bind="$props">
                     Card content
                 </ui-card-image>`,
 });
-export const CardImage = TemplateImage.bind({});
 
-const TemplateImageSmall = (args, { argTypes }) => ({
-    props: Object.keys(argTypes),
-    components: { UiCardImage },
-    template: ` <ui-card-image :variant="variant" small-image src="https://placekitten.com/300/200" alt="A kitty cat">
-                    Card content
-                </ui-card-image>`,
-});
-export const CardImageSmall = TemplateImageSmall.bind({});
+export const CardImage = TemplateImage.bind({});
+CardImage.args = {
+    variant: 'default',
+    smallImage: false,
+    src: 'https://placekitten.com/300/200',
+    alt: 'A kitty cat',
+};
