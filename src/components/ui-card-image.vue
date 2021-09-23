@@ -3,7 +3,7 @@
         <template #image>
             <img
                 v-if="smallImage"
-                class="block px-0 md:px-4 pt-0 md:pt-4 w-full md:w-auto rounded-t-sm md:rounded-none"
+                class="block px-0 md:px-4 pt-0 md:pt-4 w-full md:w-auto rounded-t-sm md:rounded-none m-auto max-w-sm"
                 v-bind="$attrs"
                 loading="lazy"
             />
@@ -18,7 +18,9 @@
                 />
             </div>
         </template>
-        <slot />
+        <div class="md:text-center">
+            <slot />
+        </div>
     </ui-card>
 </template>
 
