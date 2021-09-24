@@ -1,3 +1,10 @@
+# [8.4.0](https://github.com/funda-frontend/ui/compare/v8.3.0...v8.4.0) (2021-09-24)
+
+
+### Features
+
+* **card-image:** center all content for the small image variant ([f8dd004](https://github.com/funda-frontend/ui/commit/f8dd004959340a36145d268dc0c5682fadf3c7a7))
+
 # [8.3.0](https://github.com/funda-frontend/ui/compare/v8.2.2...v8.3.0) (2021-09-23)
 
 
