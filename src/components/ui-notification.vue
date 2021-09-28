@@ -1,45 +1,15 @@
 <template>
     <div :class="cssClasses" class="items-center flex p-3">
-        <span class="mr-3" :aria-label="type">
-            <icon-info
-                v-if="type === 'information'"
-                class="text-dark-1"
-                aria-label="information"
-            />
-
-            <icon-error
-                v-if="type === 'error'"
-                class="text-red-1"
-                aria-label="information"
-            />
-
-            <icon-success
-                v-if="type === 'success'"
-                class="text-green-1"
-                aria-label="success"
-            />
-
-            <icon-warning
-                v-if="type === 'warning'"
-                class="text-yellow-1"
-                aria-label="warning"
-            />
-        </span>
-
+        <ui-icon-type :type="type" class="mr-3" />
         <slot name="notificationBody" />
     </div>
 </template>
 
 <script>
-import {
-    Error as IconError,
-    Warning as IconWarning,
-    Success as IconSuccess,
-    Info as IconInfo,
-} from '@funda/icons/lib/vue';
+import UiIconType from './ui-icon-type.vue';
 
 export default {
-    components: { IconError, IconWarning, IconSuccess, IconInfo },
+    components: { UiIconType },
     props: {
         type: {
             type: String,

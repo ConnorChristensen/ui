@@ -3,31 +3,7 @@
         class="group shadow relative rounded-sm bg-white border-solid border-l-4 flex p-4 pr-10 m-3"
         :class="[borderColorClass]"
     >
-        <div class="mr-3" :aria-label="type">
-            <icon-info
-                v-if="type === 'information'"
-                class="text-dark-1"
-                aria-label="information"
-            />
-
-            <icon-error
-                v-if="type === 'error'"
-                class="text-red-1"
-                aria-label="information"
-            />
-
-            <icon-success
-                v-if="type === 'success'"
-                class="text-green-1"
-                aria-label="success"
-            />
-
-            <icon-warning
-                v-if="type === 'warning'"
-                class="text-yellow-1"
-                aria-label="warning"
-            />
-        </div>
+        <ui-icon-type :type="type" class="mr-3" />
 
         <div class="m-0 flex-auto overflow-hidden">
             <slot />
@@ -48,22 +24,12 @@
 
 <script>
 import UiButton from './ui-button.vue';
-import {
-    Error as IconError,
-    Warning as IconWarning,
-    Success as IconSuccess,
-    Info as IconInfo,
-    Close as IconClose,
-} from '@funda/icons/lib/vue';
+import UiIconType from './ui-icon-type.vue';
 
 export default {
     components: {
         UiButton,
-        IconError,
-        IconWarning,
-        IconSuccess,
-        IconInfo,
-        IconClose,
+        UiIconType,
     },
     props: {
         type: {
