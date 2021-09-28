@@ -1,5 +1,5 @@
 <template>
-    <div :class="cssClasses" class="items-center flex p-3">
+    <div :class="cssClasses" class="items-start flex p-3">
         <ui-icon-type :type="type" class="mr-3" />
         <slot name="notificationBody" />
     </div>

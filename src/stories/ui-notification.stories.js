@@ -5,6 +5,11 @@ export default {
     title: 'Visual/Notification',
     component: UiNotification,
     argTypes: {
+        notificationText: {
+            control: {
+                type: 'text',
+            },
+        },
         type: {
             control: {
                 type: 'select',
@@ -22,11 +27,9 @@ export default {
 const Template = (args, { argTypes }) => ({
     props: Object.keys(argTypes),
     components: { UiNotification, IconClose },
-    template: `<ui-notification :type="type" :rounded="rounded">
+    template: `<ui-notification v-bind="$props">
             <template v-slot:notificationBody>
-                <p class="m-0 flex-auto">
-                    Lorem ipsum dolor, sit amet. Nunc nec ante vel mi henderdit.
-                </p>
+                <p class="m-0 flex-auto">{{ notificationText }}</p>
 
                 <button
                     type="button"
@@ -45,4 +48,5 @@ const Template = (args, { argTypes }) => ({
 export const Notification = Template.bind({});
 Notification.args = {
     type: 'success',
+    notificationText: 'Lorem ipsum dolor sit amet.',
 };
