@@ -1,3 +1,15 @@
+# [8.5.0](https://github.com/funda-frontend/ui/compare/v8.4.0...v8.5.0) (2021-09-29)
+
+
+### Bug Fixes
+
+* **notification:** fix icon alignment for multiline message ([7c22953](https://github.com/funda-frontend/ui/commit/7c22953f932932bc6f76685535a2e65b174360a5))
+
+
+### Features
+
+* **icon-type:** add ui-icon-type component ([523ee27](https://github.com/funda-frontend/ui/commit/523ee27edd101a7d71578ed8d55ea14dc8f0581a))
+
 # [8.4.0](https://github.com/funda-frontend/ui/compare/v8.3.0...v8.4.0) (2021-09-24)
 
 
