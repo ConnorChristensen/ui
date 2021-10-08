@@ -27,7 +27,7 @@ export default {
             const type = {
                 information: 'bg-white',
                 error: 'bg-red-2',
-                success: 'bg-green-2',
+                success: 'bg-green-3',
                 warning: 'bg-yellow-2',
             }[this.type];
             const rounded = this.rounded ? 'rounded' : '';
